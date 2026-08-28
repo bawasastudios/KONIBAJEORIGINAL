@@ -146,6 +146,12 @@ makeProduct(15, "Konibaje Originals Double Six Pink Tee", "tshirts", 50000, "HXH
 makeProduct(16, "Konibaje Originals Double Six White Tee", "tshirts", 35000, "SE", ["bone"], "NEW"),
 makeProduct(17, "Konibaje Originals Mago Spoot Black Tee", "tshirts", 35000, "SSDD", ["ink"], "NEW"),
 makeProduct(18, "Konibaje Originals Renaissance Tee", "tshirts", 35000, "freepik_edit_", ["ink"], "NEW"),
+  makeProduct(19, "Konibaje Originals Mago Spoot Tee", "tshirts", 35000, "B1", ["indigo"], "NEW"),
+makeProduct(20, "Konibaje Originals Classic Tee", "tshirts", 50000, "B5", ["bone"], "NEW"),
+makeProduct(21, "Konibaje Originals Double Six Pink Tee", "tshirts", 50000, "HXHH", ["pink"], "NEW"),
+makeProduct(22, "Konibaje Originals Double Six White Tee", "tshirts", 35000, "SE", ["bone"], "NEW"),
+makeProduct(23, "Konibaje Originals Mago Spoot Black Tee", "tshirts", 35000, "SSDD", ["ink"], "NEW"),
+makeProduct(24, "Konibaje Originals Renaissance Tee", "tshirts", 35000, "freepik_edit_", ["ink"], "NEW"),enaissance Tee", "tshirts", 35000, "FREEPIK", ["ink"], "NEW"),
 ];
 
 const money = (n) => "₦" + n.toLocaleString("en-NG");
