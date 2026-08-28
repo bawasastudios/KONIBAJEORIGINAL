@@ -590,21 +590,20 @@ function Shop({ openProduct, onAddToCart, onToggleWishlist, wishlist, initialCat
   useEffect(() => { setCategory(initialCategory || "all"); }, [initialCategory]);
   useEffect(() => { setQuery(searchQuery || ""); }, [searchQuery]);
 
-  const filtered = useMemo(() => {
-    let list = PRODUCTS.filter((p) => p.price <= priceMax);
-    if (category !== "all") list = list.filter((p) => p.category === category);
-    if (category === "new") {list = list.filter((p) => p.tag === "NEW"); } else if (category !== "all") {list = list.filter((p) => p.category === category);}
-    if (colorFilter) list = list.filter((p) => p.colors.includes(colorFilter));
-    if (query.trim()) {
-      const q = query.trim().toLowerCase();
-      list = list.filter((p) => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
-    }
-    if (sort === "price-asc") list = [...list].sort((a, b) => a.price - b.price);
-    if (sort === "price-desc") list = [...list].sort((a, b) => b.price - a.price);
-    if (sort === "newest") list = [...list].sort((a, b) => (b.tag ? 1 : 0) - (a.tag ? 1 : 0));
-    if (sort === "bestselling") list = [...list].sort((a, b) => b.id % 5 - a.id % 5);
-    return list;
-  }, [category, sort, priceMax, sizeFilter, colorFilter, query]);
+  const filtered = useMemo(() => {let list = PRODUCTS.filter((p) => p.price <= priceMax);
+if (category === "new") {list = list.filter(  (p) => String(p.tag || "").toUpperCase() === "NEW" ); } else if (category !== "all") {list = list.filter((p) => p.category === category);  }
+if (sizeFilter) { list = list.filter((p) => p.sizes?.includes(sizeFilter));  }
+if (colorFilter) {  list = list.filter((p) => p.colors?.includes(colorFilter));  }
+if (query.trim()) {
+    const q = query.trim().toLowerCase();
+    list = list.filter( (p) => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)   ); }
+  if (sort === "price-asc") { list = [...list].sort((a, b) => a.price - b.price);  }
+if (sort === "price-desc") {list = [...list].sort((a, b) => b.price - a.price); }
+if (sort === "newest") {  list = [...list].sort((a, b) => b.id - a.id); }
+if (sort === "bestselling") { list = [...list].sort((a, b) => (b.tag ? 1 : 0) - (a.tag ? 1 : 0));  }
+
+  return list;
+}, [category, sort, priceMax, sizeFilter, colorFilter, query]);
 
   return (
     <div className="max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-14">
