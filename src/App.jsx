@@ -221,7 +221,7 @@ function Header({ view, setView, cartCount, wishlistCount, onOpenCart, mobileMen
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => setView(item.id === "new" ? "shop" : item.id)}
+              onClick={() => setView(item.id === "new" ? { page: "shop", category: "new" } : item.id)}
               className={`kj-underline uppercase ${view === item.id ? "text-[var(--indigo)]" : ""}`}
             >
               {item.label}
