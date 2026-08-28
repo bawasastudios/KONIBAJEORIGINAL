@@ -207,7 +207,7 @@ function Header({ view, setView, cartCount, wishlistCount, onOpenCart, mobileMen
           <Menu size={22} />
         </button>
 
-        <button onClick={() => setView("home")} className="kj-display text-lg md:text-2xl tracking-wide">
+        <button onClick={() => setView("home")} className="brand-font-text-lg md:text-2xl tracking-wide">
           KONIBAJE <span className="text-[var(--indigo)]">ORIGINALS</span>
         </button>
 
