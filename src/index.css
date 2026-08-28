@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Klaxon Crunchy";
+  src: url("/fonts/Klaxon-Crunchy.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.brand-font {
+  font-family: "Klaxon Crunchy", sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -18,13 +30,7 @@ textarea:focus-visible,
 select:focus-visible {
   outline: 2px solid #202a52;
   outline-offset: 2px;
-@font-face {
-  font-family: "Klaxon Crunchy";
-  src: url("/fonts/Klaxon-Crunchy.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+
 
 .brand-font {
   font-family: "Klaxon Crunchy", sans-serif;
