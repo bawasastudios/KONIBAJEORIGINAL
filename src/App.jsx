@@ -593,7 +593,7 @@ function Shop({ openProduct, onAddToCart, onToggleWishlist, wishlist, initialCat
   const filtered = useMemo(() => {
     let list = PRODUCTS.filter((p) => p.price <= priceMax);
     if (category !== "all") list = list.filter((p) => p.category === category);
-    if (sizeFilter) list = list.filter((p) => p.sizes.includes(sizeFilter));
+    if (category === "new") {list = list.filter((p) => p.tag === "NEW"); } else if (category !== "all") {list = list.filter((p) => p.category === category);}
     if (colorFilter) list = list.filter((p) => p.colors.includes(colorFilter));
     if (query.trim()) {
       const q = query.trim().toLowerCase();
