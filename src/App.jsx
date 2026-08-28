@@ -87,14 +87,34 @@ const COLORS = [
 const SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
 
 function makeProduct(id, name, category, price, seed, colorIds, tag) {
+  const localImages = {
+    B1: "/products/B1.jpeg",
+    B5: "/products/B5.png",
+    HXHH: "/products/HXHH.jpeg",
+    SE: "/products/SE.jpeg",
+    SSDD: "/products/SSDD.jpeg",
+    "freepik_edit_": "/products/freepik_edit_.jpeg",
+  };
+
+  const localImage = localImages[seed];
+
   return {
-    id, name, category, price, tag: tag || null,
+    id,
+    name,
+    category,
+    price,
+    tag: tag || null,
     colors: colorIds,
     sizes: SIZES,
-    images: [
-      `https://picsum.photos/seed/${seed}-a/900/1150`,
-      `https://picsum.photos/seed/${seed}-b/900/1150`,
-      `https://picsum.photos/seed/${seed}-c/900/1150`,
+    images: localImage
+      ? [localImage, localImage, localImage]
+      : [
+          `https://picsum.photos/seed/${seed}-a/900/1150`,
+          `https://picsum.photos/seed/${seed}-b/900/1150`,
+          `https://picsum.photos/seed/${seed}-c/900/1150`,
+        ],
+  };
+}
     ],
     description:
       "Cut from heavyweight cotton and finished with reinforced stitching, this piece is built for daily wear and designed to move with you. Part of the current Konibaje Originals collection.",
@@ -120,6 +140,12 @@ const PRODUCTS = [
   makeProduct(10, "Second Skin Joggers", "pants", 39000, "kj-p10", ["ink","indigo"], null),
   makeProduct(11, "Tribe Graphic Tee", "tshirts", 29000, "kj-p11", ["bone","clay"], "NEW"),
   makeProduct(12, "Woven Crossbody Bag", "accessories", 34000, "kj-p12", ["ink","olive"], null),
+  makeProduct(13, "Konibaje Originals Mago Spoot Tee", "tshirts", 35000, "B1", ["indigo"], "NEW"),
+makeProduct(14, "Konibaje Originals Classic Tee", "tshirts", 50000, "B5", ["bone"], "NEW"),
+makeProduct(15, "Konibaje Originals Double Six Pink Tee", "tshirts", 50000, "HXHH", ["pink"], "NEW"),
+makeProduct(16, "Konibaje Originals Double Six White Tee", "tshirts", 35000, "SE", ["bone"], "NEW"),
+makeProduct(17, "Konibaje Originals Mago Spoot Black Tee", "tshirts", 35000, "SSDD", ["ink"], "NEW"),
+makeProduct(18, "Konibaje Originals Renaissance Tee", "tshirts", 35000, "freepik_edit_", ["ink"], "NEW"),
 ];
 
 const money = (n) => "₦" + n.toLocaleString("en-NG");
